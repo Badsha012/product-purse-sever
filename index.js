@@ -12,7 +12,7 @@ const uri =
   "mongodb+srv://product-db:clSxjrApUV4iSYwC@cluster0.cyspe14.mongodb.net/?appName=Cluster0";
 
 app.get("/", (req, res) => {
-  res.send("Hello World!");
+  res.send("Server is Running");
 });
 
 // MongoDB Setup
