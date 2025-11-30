@@ -8,8 +8,7 @@ app.use(express.json());
 
 const port = 5000;
 
-const uri =
-  "mongodb+srv://product-db:clSxjrApUV4iSYwC@cluster0.cyspe14.mongodb.net/?appName=Cluster0";
+const uri = "mongodb+srv://product-db:clSxjrApUV4iSYwC@cluster0.cyspe14.mongodb.net/?appName=Cluster0";
 
 app.get("/", (req, res) => {
   res.send("Server is Running");
@@ -26,7 +25,7 @@ const client = new MongoClient(uri, {
 
 async function run() {
   try {
-    await client.connect();
+   // await client.connect();
     console.log("MongoDB Connected Successfully!");
 
     const database = client.db("product-db");
@@ -42,12 +41,12 @@ async function run() {
       }
     });
 
-    // GET single product by ID (FIXED)
+   
     app.get("/products/:id", async (req, res) => {
       try {
         const id = req.params.id;
 
-        // FIX: _id string হলে ObjectId ব্যবহার করা যাবে না
+        
         const query = { _id: id };
 
         const product = await productCollection.findOne(query);
